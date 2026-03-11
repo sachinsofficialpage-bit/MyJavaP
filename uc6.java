@@ -1,53 +1,46 @@
-public class BannerApp {
+/**
+ * OOPSBannerApp UC6 - Static Functions
+ * Refactors the code to use modular helper methods for character patterns.
+ * * @author Developer
+ * @version 6.0
+ */
+public class UC6 {
 
     public static void main(String[] args) {
-
-        String[] lines = {
-                String.join("   ", O(0), O(0), P(0), S(0)),
-                String.join("   ", O(1), O(1), P(1), S(1)),
-                String.join("   ", O(2), O(2), P(2), S(2)),
-                String.join("   ", O(3), O(3), P(3), S(3)),
-                String.join("   ", O(4), O(4), P(4), S(4))
+        // Use an array to store the 7 lines of the banner
+        // We call our static methods directly inside the array initialization
+        String[] banner = {
+            getRow(0), getRow(1), getRow(2), getRow(3), getRow(4), getRow(5), getRow(6)
         };
 
-        for (String line : lines) {
+        // Enhanced for-loop to print the final result
+        for (String line : banner) {
             System.out.println(line);
         }
     }
 
-    // Pattern for O
-    public static String O(int row) {
-        String[] pattern = {
-                " ***** ",
-                "*     *",
-                "*     *",
-                "*     *",
-                " ***** "
-        };
-        return pattern[row];
+    /**
+     * Helper method to assemble a single row of the banner by joining letters.
+     */
+    public static String getRow(int row) {
+        return String.join("  ", getO(row), getO(row), getP(row), getS(row));
     }
 
-    // Pattern for P
-    public static String P(int row) {
-        String[] pattern = {
-                "****** ",
-                "*     *",
-                "****** ",
-                "*      ",
-                "*      "
-        };
-        return pattern[row];
+    // Static method for letter O pattern
+    public static String getO(int row) {
+        String[] o = {" OOO ", "O   O", "O   O", "O   O", "O   O", "O   O", " OOO "};
+        return o[row];
     }
 
-    // Pattern for S
-    public static String S(int row) {
-        String[] pattern = {
-                " ***** ",
-                "*      ",
-                " ***** ",
-                "      *",
-                " ***** "
-        };
-        return pattern[row];
+    // Static method for letter P pattern
+    public static String getP(int row) {
+        String[] p = {"PPPP ", "P   P", "P   P", "PPPP ", "P    ", "P    ", "P    "};
+        return p[row];
+    }
+
+    // Static method for letter S pattern
+    public static String getS(int row) {
+        String[] s = {" SSSS", "S    ", "S    ", " SSS ", "    S", "    S", "SSSS "};
+        return s[row];
     }
 }
