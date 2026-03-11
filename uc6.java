@@ -43,4 +43,4 @@ public class UC6 {
         String[] s = {" SSSS", "S    ", "S    ", " SSS ", "    S", "    S", "SSSS "};
         return s[row];
     }
-}
+}git 
